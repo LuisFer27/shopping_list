@@ -75,7 +75,8 @@ class _NewItemState extends State<NewItem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add new item'),
+        //title: const Text('Add new item'),
+        title: const Text('Añadir nuevo articulo'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -86,14 +87,16 @@ class _NewItemState extends State<NewItem> {
               TextFormField(
                 maxLength: 50,
                 decoration: const InputDecoration(
-                  label: Text('Name'),
+                  //label: Text('Name'),
+                  label: Text('Nombre del articulo'),
                 ),
                 validator: (value) {
                   if (value == null ||
                       value.isEmpty ||
                       value.trim().length <= 1 ||
                       value.trim().length > 50) {
-                    return 'Must be between 1 and 50 characters.';
+                    //return 'Must be between 1 and 50 characters.';
+                    return 'El nombre debe de contener entre 1 y 50 caracteres';
                   }
                   return null;
                 },
@@ -109,7 +112,8 @@ class _NewItemState extends State<NewItem> {
                   Expanded(
                     child: TextFormField(
                       decoration: const InputDecoration(
-                        label: Text('Quantity'),
+                        label: Text('Cantidad'),
+                        //label: Text('Quantity'),
                       ),
                       keyboardType: TextInputType.number,
                       initialValue: _enteredQuantity.toString(),
@@ -118,7 +122,8 @@ class _NewItemState extends State<NewItem> {
                             value.isEmpty ||
                             int.tryParse(value) == null ||
                             int.tryParse(value)! <= 0) {
-                          return 'Must be a valid, positive number.';
+                          //return 'Must be a valid, positive number.';
+                          return 'El número debe ser un número valido y que sea positivo';
                         }
                         return null;
                       },
@@ -170,7 +175,8 @@ class _NewItemState extends State<NewItem> {
                         : () {
                             _formKey.currentState!.reset();
                           },
-                    child: const Text('Reset'),
+                    child: const Text('Reiniciar'),
+                    //const Text('Reset'),
                   ),
                   ElevatedButton(
                     onPressed: _isSending ? null : _saveItem,
@@ -180,7 +186,8 @@ class _NewItemState extends State<NewItem> {
                             width: 16,
                             child: CircularProgressIndicator(),
                           )
-                        : const Text('Add Item'),
+                        //const Text('Add Item'),
+                        : const Text('Añadir articulo'),
                   )
                 ],
               )

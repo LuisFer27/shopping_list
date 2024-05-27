@@ -31,7 +31,8 @@ class _GroceryListState extends State<GroceryList> {
       final response = await http.get(url);
       if (response.statusCode >= 400) {
         setState(() {
-          _error = 'Failed to fetch data.Please try again later.';
+          //_error = 'Failed to fetch data.Please try again later.';
+          _error = 'Fallo la búsqueda de datos.Por favor inténtalo más tarde.';
         });
       } //400
       if (response.body == 'null') {
@@ -62,7 +63,8 @@ class _GroceryListState extends State<GroceryList> {
       });
     } catch (error) {
       setState(() {
-        _error = 'Something went wrong!.Please try again later.';
+        //_error = 'Something went wrong!.Please try again later.';
+        _error = 'Algo salio mal.Por favor inténtalo más tarde';
       });
     }
     //final url = Uri.https('abc.firebaseio.com', 'shopping-list.json'); //enlace incorrecto ejemplo
@@ -101,7 +103,7 @@ class _GroceryListState extends State<GroceryList> {
   @override
   Widget build(BuildContext context) {
     Widget content = const Center(
-      child: Text('No items added yet. '),
+      child: Text('No hay artículos añadidos. '),
     );
     if (_isLoading) {
       content = const Center(child: CircularProgressIndicator());
@@ -135,7 +137,8 @@ class _GroceryListState extends State<GroceryList> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Groceries'),
+        //title: const Text('Your Groceries'),
+        title: const Text('Tu mandado'),
         actions: [
           IconButton(
             onPressed: _addItem,
